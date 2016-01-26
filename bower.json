@@ -1,0 +1,11 @@
+{
+  "name": "clientesM",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}
