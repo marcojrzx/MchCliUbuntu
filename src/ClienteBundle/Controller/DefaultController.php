@@ -4,6 +4,8 @@ namespace ClienteBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use ClienteBundle\Entity\Servicio;
 
 class DefaultController extends Controller
 {
@@ -16,7 +18,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/cliente/home")
+     * @Route("/cliente/home", name="cliente_home")
      */
     public function homeAction()
     {
@@ -31,7 +33,7 @@ class DefaultController extends Controller
         )->setParameter('price', $userId);
 
         $products = $query->getResult();
-      
+
 
         return $this->render('ClienteBundle:Default:home.html.twig', array(
             'servicios' => $products,
@@ -40,5 +42,19 @@ class DefaultController extends Controller
 
 
 
+    }
+    /**
+     * Finds and displays a Servicio entity.
+     *
+     * @Route("cliente/servicio/{id}", name="cliente_servicio_show")
+     * @Method("GET")
+     */
+    public function showAction(Servicio $servicio)
+    {
+
+        return $this->render('cliente/show.html.twig', array(
+            'servicio' => $servicio,
+
+        ));
     }
 }

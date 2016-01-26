@@ -34,6 +34,7 @@
             <th>Descripcion</th>
             <th>Costo</th>
             <th>Renovacion</th>
+            <th></th>
 
         </tr>
     </thead>
@@ -44,6 +45,9 @@
             <td>{{ servicio.descripcion }}</td>
             <td>$ {{ servicio.costo }}</td>
             <td>{{ servicio.costoTiempo }}</td>
+            <td> <a href="{{ path('cliente_servicio_show', { 'id': servicio.id }) }}" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-search"></span> Info
+        </a></td>
 
         </tr>
     {% endfor %}
